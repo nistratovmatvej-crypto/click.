@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#dce8df">
+<meta name="description" content="click — маленькая минималистичная игра. Просто нажимай на кнопку и наслаждайся каждым кликом.">
+<meta name="robots" content="index,follow">
+<title>click — просто нажимай</title>
+<link rel="canonical" href="https://YOUR-DOMAIN.com/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="click">
+<meta property="og:url" content="https://YOUR-DOMAIN.com/">
+<meta property="og:title" content="click — просто нажимай">
+<meta property="og:description" content="Маленькая минималистичная игра. Одна кнопка — и ничего лишнего.">
+<meta property="og:image" content="https://YOUR-DOMAIN.com/click-preview.svg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Слово click на зелёном круге на светло-зелёном фоне">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="click — просто нажимай">
+<meta name="twitter:description" content="Маленькая минималистичная игра. Одна кнопка — и ничего лишнего.">
+<meta name="twitter:image" content="https://YOUR-DOMAIN.com/click-preview.svg">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"click","url":"https://YOUR-DOMAIN.com/","description":"Минималистичная браузерная игра, в которой нужно просто нажимать на кнопку.","applicationCategory":"GameApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<style>
+*{box-sizing:border-box}html,body{width:100%;min-height:100%;margin:0}
+body{min-height:100svh;display:grid;place-items:center;overflow:hidden;padding:16px;background:#dce8df;font-family:Arial,Helvetica,sans-serif}
+button{width:min(82vw,42svh,320px);height:min(82vw,42svh,320px);min-width:min(180px,82vw);min-height:min(180px,82vw);border:0;border-radius:50%;background:#527765;color:#f5f7f2;font:500 24px Arial,Helvetica,sans-serif;letter-spacing:.02em;cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:none;touch-action:manipulation;transition:transform 100ms ease,background-color 100ms ease,box-shadow 100ms ease;box-shadow:0 8px 0 #3f6151}
+button:active{transform:translateY(6px) scale(.97);background:#466957;box-shadow:0 2px 0 #3f6151}
+button:focus-visible{outline:3px solid #294c3b;outline-offset:7px}
+@media(max-height:420px){button{width:min(68vw,72svh,240px);height:min(68vw,72svh,240px)}}
+@media(prefers-reduced-motion:reduce){button{transition:none}}
+</style>
+</head>
+<body>
+<button id="clickButton" type="button" aria-label="Нажми">click</button>
+<script>
+(()=>{const button=document.getElementById('clickButton');let audioContext;button.addEventListener('click',()=>{try{const AudioContextClass=window.AudioContext||window.webkitAudioContext;if(!AudioContextClass)return;audioContext||=new AudioContextClass();if(audioContext.state==='suspended')audioContext.resume();const now=audioContext.currentTime;const oscillator=audioContext.createOscillator();const volume=audioContext.createGain();oscillator.type='sine';oscillator.frequency.setValueAtTime(520,now);oscillator.frequency.exponentialRampToValueAtTime(260,now+.055);volume.gain.setValueAtTime(.075,now);volume.gain.exponentialRampToValueAtTime(.001,now+.065);oscillator.connect(volume);volume.connect(audioContext.destination);oscillator.start(now);oscillator.stop(now+.07)}catch(_){} })})();
+</script>
+</body>
+</html>
